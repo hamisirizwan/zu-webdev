@@ -64,7 +64,7 @@ export default function RegistrationForm() {
       title: "Beginner",
       description: "Starting your web dev journey",
       benefit:
-        "Learn the basics and build a strong foundation in web development.",
+        "In this group, we will focus more on basic concepts of web develpments i.e HTML, CSS and Javascript to give the the foundational building blocks for web development.",
     },
     {
       name: "intermediate",
@@ -72,7 +72,7 @@ export default function RegistrationForm() {
       title: "Intermediate",
       description: "Expanding your skills",
       benefit:
-        "Deepen your knowledge and start building more complex projects.",
+        "In this group, we will focus more on advanced Javascript concepts and introduction to web frameworks like react js. You will require basic knowledge of HTML , CSS AND Javascript",
     },
     {
       name: "advanced",
@@ -80,7 +80,7 @@ export default function RegistrationForm() {
       title: "Advanced",
       description: "Project-based learning",
       benefit:
-        "Work on real-world projects and prepare for a career in web development.",
+        "Here we will focus more on building projects to perfect your skills as well as coming up with collaborating Saas ideas that can potentially be monetized.",
     },
   ];
 
@@ -207,13 +207,21 @@ export default function RegistrationForm() {
         <p className="text-red-500 text-sm mt-1">{errors.category}</p>
       )}
 
-      {formData.category && (
+      {formData.category ? (
         <div className="mb-6 p-4 bg-primary/5 rounded-lg">
           <p className="text-sm text-primary font-medium">
             {categories.find((c) => c.name === formData.category)?.benefit}
           </p>
         </div>
-      )}
+      ):
+      (
+        <div className="mb-6 p-4 bg-primary/5 rounded-lg">
+          <p className="text-sm text-primary font-medium">
+           Select category to view the details here.
+          </p>
+        </div>
+      )
+      }
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
