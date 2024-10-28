@@ -183,7 +183,7 @@ export default function RegistrationForm() {
       </h2>
 
       <p className="text-lg text-center mb-4">
-        Please select a category that best fits your expertise:
+        This tool is to help in identifying the different levels we are in for easy plannings of the web development sessions. Please select Your expertise level below:
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 mb-8">
