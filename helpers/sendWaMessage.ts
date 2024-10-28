@@ -20,7 +20,7 @@ export async function sendMessage(phone: string, message: string): Promise<SendM
 
     const phoneNumber = `+254${phone.slice(-9)}`
 
-    console.log(phoneNumber)
+    
     try {
         const response = await axios.post(
             API_URL,
@@ -37,6 +37,7 @@ export async function sendMessage(phone: string, message: string): Promise<SendM
             }
         );
 
+        console.log(`message sent successfully to ${phoneNumber}`)
         return { message: response.data.message };
 
     } catch (error) {

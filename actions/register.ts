@@ -3,6 +3,7 @@
 import dbConnect from "@/db/connect";
 import Registration from "@/db/model"
 import { sendMessage } from "@/helpers/sendWaMessage";
+import axios from "axios";
 
 
 type FormData = {
@@ -61,9 +62,31 @@ export async function register(formData: FormData) {
         await newUser.save();
 
         // send a whatsapp message 
-
+        // this takes time on vercel
         const message = `Hello ${name}(${admissionNumber})\n\nYour registration request to join ZU web dev has been received for level: *${category}.*\n\n More communications will be given in the Web dev group under Itech Community`
-        sendMessage(whatsappNumber , message )
+        // sendMessage(whatsappNumber , message )
+
+        const APIWAP_API_KEY = process.env.APIWAP_API_KEY; 
+
+        if (APIWAP_API_KEY) {
+            const API_URL = 'https://api.apiwap.com/api/v1/whatsapp/send-message';
+
+            axios.post(
+                API_URL,
+                {
+                    phoneNumber:`+254${whatsappNumber.slice(-9)}`,
+                    message,
+                    type: 'text'
+                },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${APIWAP_API_KEY}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+    
+        }
 
         return { message: 'Registration successful' };
 
