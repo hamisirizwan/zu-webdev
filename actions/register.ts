@@ -63,7 +63,7 @@ export async function register(formData: FormData) {
 
         // send a whatsapp message 
         // this takes time on vercel
-        const message = `Hello ${name}(${admissionNumber})\n\nYour registration request to join ZU web dev has been received for level: *${category}.*\n\n More communications will be given in the Web dev group under Itech Community`
+        const message = `Hello ${name}(${admissionNumber})\n\nYour registration request to join ZU web dev has been received for level: *${category}.*\n\n More communications will be given in the Web dev group under Itech Community\n\n> This is an automated message \`Dont reply\``
         // sendMessage(whatsappNumber , message )
 
         const APIWAP_API_KEY = process.env.APIWAP_API_KEY; 
