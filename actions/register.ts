@@ -71,7 +71,7 @@ export async function register(formData: FormData) {
         if (APIWAP_API_KEY) {
             const API_URL = 'https://api.apiwap.com/api/v1/whatsapp/send-message';
 
-            axios.post(
+           await axios.post(
                 API_URL,
                 {
                     phoneNumber:`+254${whatsappNumber.slice(-9)}`,
