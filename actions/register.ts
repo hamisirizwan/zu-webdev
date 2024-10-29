@@ -4,6 +4,7 @@ import dbConnect from "@/db/connect";
 import Registration from "@/db/model"
 import { sendMessage } from "@/helpers/sendWaMessage";
 import axios from "axios";
+import { revalidatePath } from "next/cache";
 
 
 type FormData = {
@@ -88,6 +89,7 @@ export async function register(formData: FormData) {
     
         }
 
+        revalidatePath("/members")
         return { message: 'Registration successful' };
 
     } catch (error) {

@@ -50,6 +50,7 @@ export default async function DashboardPage() {
             <Card key={category} className="bg-gradient-to-br from-primary/10 to-primary/5">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-lg font-medium capitalize">
+                    
                   {category}s
                 </CardTitle>
                 <Icon className="h-5 w-5 text-primary" />
